@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Quicksand:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-display {
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .font-body {
+      font-family: 'Quicksand', sans-serif;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(1000%) rotate(720deg); opacity: 0; }
+    }
+    
+    @keyframes balloon-float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-15px) translateX(10px); }
+      50% { transform: translateY(-25px) translateX(-5px); }
+      75% { transform: translateY(-10px) translateX(-10px); }
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes cake-bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes reveal {
+      0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 200, 100, 0.8)); }
+      50% { filter: drop-shadow(0 0 40px rgba(255, 200, 100, 1)); }
+    }
+    
+    .confetti {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      top: -20px;
+      animation: confetti-fall linear forwards;
+    }
+    
+    .balloon {
+      animation: balloon-float 4s ease-in-out infinite;
+    }
+    
+    .cake-container {
+      animation: cake-bounce 2s ease-in-out infinite;
+    }
+    
+    .sparkle {
+      position: absolute;
+      font-size: 24px;
+      animation: sparkle 1.5s ease-in-out infinite;
+    }
+    
+    .reveal-animation {
+      animation: reveal 0.8s ease-out forwards;
+    }
+    
+    .candle-glow {
+      animation: glow 1.5s ease-in-out infinite;
+    }
+    
+    .gift-box:hover {
+      transform: scale(1.1) rotate(-5deg);
+      transition: transform 0.3s ease;
+    }
+    
+    .hidden-content {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .show-content {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div id="app" class="h-full w-full overflow-auto relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);"><!-- Background Pattern -->
+   <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://scontent-sin6-3.xx.fbcdn.net/v/t39.30808-6/617086051_1558768785330100_2599378329137443559_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFsgYV4N9e4pMSvlPrm8manoPZL5wT0vKKg9kvnBPS8ot9bVySU_avzeM_5_bNRXi-VdWIqrcnkFr3QfMzCOZ1E&_nc_ohc=2QTJM9PPFIEQ7kNvwEYKweC&_nc_oc=AdnQYdYMbIhaCih89-ghj2_caxleU9wt7SelgVZ8EW_ZTCKz74Ah0vTumwd8jklbs5ef31Pbj8pS2B5ESEpwxkil&_nc_zt=23&_nc_ht=scontent-sin6-3.xx&_nc_gid=aSxrc4jMpG2wdJip0gU8kw&oh=00_AfrndWZf2j99OEWmr-1RA6CQ2PL4YvM5V6DYcUMaDyWd7w&oe=6974B95A'); background-size: 200px 200px;"></div><!-- Decorative Background Images -->
+   <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30"><!-- Top Left Gift -->
+    <div class="absolute top-8 left-8">
+     <svg width="120" height="120" viewbox="0 0 120 120"><rect x="25" y="40" width="70" height="60" fill="#FF6B6B" rx="5" /> <rect x="20" y="35" width="80" height="15" fill="#FFE66D" rx="3" /> <rect x="57" y="35" width="6" height="65" fill="#FFE66D" /> <path d="M 60 35 Q 45 20, 30 35" fill="none" stroke="#FFE66D" stroke-width="6" /> <path d="M 60 35 Q 75 20, 90 35" fill="none" stroke="#FFE66D" stroke-width="6" /> <circle cx="30" cy="35" r="8" fill="#FFE66D" /> <circle cx="90" cy="35" r="8" fill="#FFE66D" />
+     </svg>
+    </div><!-- Top Right Balloons Cluster -->
+    <div class="absolute top-12 right-12">
+     <svg width="140" height="160" viewbox="0 0 140 160"><ellipse cx="40" cy="50" rx="30" ry="40" fill="#A8E6CF" opacity="0.8" /> <line x1="40" y1="88" x2="40" y2="120" stroke="#333" stroke-width="2" /> <ellipse cx="80" cy="40" rx="28" ry="38" fill="#FFE66D" opacity="0.8" /> <line x1="80" y1="76" x2="75" y2="120" stroke="#333" stroke-width="2" /> <ellipse cx="110" cy="55" rx="26" ry="36" fill="#FF6B6B" opacity="0.8" /> <line x1="110" y1="89" x2="100" y2="120" stroke="#333" stroke-width="2" /> <ellipse cx="65" cy="70" rx="24" ry="34" fill="#DDA0DD" opacity="0.8" /> <line x1="65" y1="102" x2="70" y2="120" stroke="#333" stroke-width="2" /> <circle cx="75" cy="125" r="8" fill="#FFE66D" />
+     </svg>
+    </div><!-- Bottom Left Party Hat -->
+    <div class="absolute bottom-16 left-16">
+     <svg width="100" height="120" viewbox="0 0 100 120"><polygon points="50,10 20,100 80,100" fill="#DDA0DD" /> <circle cx="50" cy="10" r="12" fill="#FFE66D" /> <line x1="30" y1="60" x2="70" y2="60" stroke="#FFE66D" stroke-width="3" /> <line x1="35" y1="75" x2="65" y2="75" stroke="#A8E6CF" stroke-width="3" /> <ellipse cx="50" cy="100" rx="35" ry="8" fill="#BA55D3" />
+     </svg>
+    </div><!-- Bottom Right Stars Cluster -->
+    <div class="absolute bottom-20 right-20">
+     <svg width="130" height="130" viewbox="0 0 130 130"><path d="M 40 45 L 45 60 L 60 65 L 45 70 L 40 85 L 35 70 L 20 65 L 35 60 Z" fill="#FFE66D" opacity="0.9" /> <path d="M 90 30 L 93 40 L 103 43 L 93 46 L 90 56 L 87 46 L 77 43 L 87 40 Z" fill="#A8E6CF" opacity="0.9" /> <path d="M 75 80 L 80 95 L 95 100 L 80 105 L 75 120 L 70 105 L 55 100 L 70 95 Z" fill="#FF6B6B" opacity="0.9" /> <circle cx="45" cy="25" r="4" fill="#FFFFFF" /> <circle cx="105" cy="75" r="5" fill="#FFFFFF" /> <circle cx="30" cy="100" r="3" fill="#FFFFFF" />
+     </svg>
+    </div><!-- Center Top Confetti Burst -->
+    <div class="absolute top-5 left-1/2 transform -translate-x-1/2">
+     <svg width="160" height="100" viewbox="0 0 160 100"><rect x="20" y="30" width="8" height="15" fill="#FF6B6B" transform="rotate(20 24 37)" opacity="0.8" /> <rect x="50" y="20" width="8" height="15" fill="#FFE66D" transform="rotate(-30 54 27)" opacity="0.8" /> <rect x="80" y="15" width="8" height="15" fill="#A8E6CF" transform="rotate(45 84 22)" opacity="0.8" /> <rect x="110" y="25" width="8" height="15" fill="#DDA0DD" transform="rotate(-15 114 32)" opacity="0.8" /> <rect x="140" y="35" width="8" height="15" fill="#87CEEB" transform="rotate(60 144 42)" opacity="0.8" /> <circle cx="35" cy="50" r="5" fill="#FFE66D" opacity="0.8" /> <circle cx="70" cy="45" r="6" fill="#FF6B6B" opacity="0.8" /> <circle cx="95" cy="55" r="5" fill="#A8E6CF" opacity="0.8" /> <circle cx="125" cy="50" r="6" fill="#DDA0DD" opacity="0.8" />
+     </svg>
+    </div><!-- Middle Left Streamers -->
+    <div class="absolute top-1/2 left-0 transform -translate-y-1/2">
+     <svg width="80" height="200" viewbox="0 0 80 200"><path d="M 10 20 Q 30 60, 20 100 Q 10 140, 30 180" fill="none" stroke="#FF6B6B" stroke-width="8" opacity="0.7" /> <path d="M 40 30 Q 60 70, 50 110 Q 40 150, 60 190" fill="none" stroke="#FFE66D" stroke-width="8" opacity="0.7" />
+     </svg>
+    </div><!-- Middle Right Streamers -->
+    <div class="absolute top-1/2 right-0 transform -translate-y-1/2">
+     <svg width="80" height="200" viewbox="0 0 80 200"><path d="M 70 20 Q 50 60, 60 100 Q 70 140, 50 180" fill="none" stroke="#A8E6CF" stroke-width="8" opacity="0.7" /> <path d="M 40 30 Q 20 70, 30 110 Q 40 150, 20 190" fill="none" stroke="#DDA0DD" stroke-width="8" opacity="0.7" />
+     </svg>
+    </div>
+   </div><!-- Surprise Button Screen -->
+   <div id="surprise-screen" class="h-full w-full flex flex-col items-center justify-center p-8 relative z-10">
+    <div class="text-center">
+     <div class="text-8xl mb-6 animate-bounce">
+      🎁
+     </div>
+     <h2 class="text-white text-2xl font-semibold mb-8 opacity-90">You have a special surprise waiting!</h2><button id="reveal-btn" class="px-12 py-5 rounded-full text-xl font-bold shadow-2xl transform hover:scale-110 transition-all duration-300 hover:shadow-pink-500/50" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D); color: #4A1942;"> ✨ Open Your Surprise ✨ </button>
+    </div>
+   </div><!-- Birthday Celebration Screen -->
+   <div id="birthday-screen" class="hidden-content h-full w-full flex flex-col items-center justify-center p-6 relative overflow-hidden"><!-- Balloons -->
+    <div class="absolute top-10 left-10 balloon" style="animation-delay: 0s;">
+     <svg width="60" height="80" viewbox="0 0 60 80"><ellipse cx="30" cy="30" rx="25" ry="30" fill="#FF6B6B" /> <polygon points="30,58 25,65 35,65" fill="#FF6B6B" /> <line x1="30" y1="65" x2="30" y2="80" stroke="#FFE66D" stroke-width="2" />
+     </svg>
+    </div>
+    <div class="absolute top-20 right-16 balloon" style="animation-delay: 0.5s;">
+     <svg width="50" height="70" viewbox="0 0 60 80"><ellipse cx="30" cy="30" rx="25" ry="30" fill="#FFE66D" /> <polygon points="30,58 25,65 35,65" fill="#FFE66D" /> <line x1="30" y1="65" x2="30" y2="80" stroke="#FF6B6B" stroke-width="2" />
+     </svg>
+    </div>
+    <div class="absolute top-32 left-1/4 balloon" style="animation-delay: 1s;">
+     <svg width="45" height="65" viewbox="0 0 60 80"><ellipse cx="30" cy="30" rx="25" ry="30" fill="#A8E6CF" /> <polygon points="30,58 25,65 35,65" fill="#A8E6CF" /> <line x1="30" y1="65" x2="30" y2="80" stroke="#FFE66D" stroke-width="2" />
+     </svg>
+    </div>
+    <div class="absolute top-16 right-1/3 balloon" style="animation-delay: 1.5s;">
+     <svg width="55" height="75" viewbox="0 0 60 80"><ellipse cx="30" cy="30" rx="25" ry="30" fill="#DDA0DD" /> <polygon points="30,58 25,65 35,65" fill="#DDA0DD" /> <line x1="30" y1="65" x2="30" y2="80" stroke="#FF6B6B" stroke-width="2" />
+     </svg>
+    </div><!-- Sparkles -->
+    <div class="sparkle" style="top: 15%; left: 20%; animation-delay: 0s;">
+     ✨
+    </div>
+    <div class="sparkle" style="top: 25%; right: 15%; animation-delay: 0.3s;">
+     ⭐
+    </div>
+    <div class="sparkle" style="top: 60%; left: 10%; animation-delay: 0.6s;">
+     ✨
+    </div>
+    <div class="sparkle" style="top: 70%; right: 20%; animation-delay: 0.9s;">
+     🌟
+    </div>
+    <div class="sparkle" style="top: 40%; left: 5%; animation-delay: 1.2s;">
+     ⭐
+    </div><!-- Main Content -->
+    <div class="text-center z-10 max-w-2xl reveal-animation"><!-- Cake -->
+     <div class="cake-container mb-6">
+      <div class="candle-glow inline-block">
+       <svg width="180" height="160" viewbox="0 0 180 160"><!-- Cake plate --> <ellipse cx="90" cy="145" rx="80" ry="10" fill="#8B4513" /> <!-- Bottom layer --> <rect x="20" y="100" width="140" height="45" rx="8" fill="#FFB6C1" /> <rect x="20" y="100" width="140" height="10" rx="4" fill="#FF69B4" /> <!-- Middle layer --> <rect x="35" y="65" width="110" height="40" rx="6" fill="#DDA0DD" /> <rect x="35" y="65" width="110" height="8" rx="3" fill="#BA55D3" /> <!-- Top layer --> <rect x="50" y="35" width="80" height="35" rx="5" fill="#FFE4E1" /> <rect x="50" y="35" width="80" height="7" rx="3" fill="#FFC0CB" /> <!-- Candles --> <rect x="70" y="12" width="6" height="25" fill="#FFE66D" /> <rect x="87" y="8" width="6" height="29" fill="#FF6B6B" /> <rect x="104" y="12" width="6" height="25" fill="#A8E6CF" /> <!-- Flames --> <ellipse cx="73" cy="8" rx="5" ry="8" fill="#FFA500" /> <ellipse cx="73" cy="6" rx="3" ry="5" fill="#FFFF00" /> <ellipse cx="90" cy="4" rx="5" ry="8" fill="#FFA500" /> <ellipse cx="90" cy="2" rx="3" ry="5" fill="#FFFF00" /> <ellipse cx="107" cy="8" rx="5" ry="8" fill="#FFA500" /> <ellipse cx="107" cy="6" rx="3" ry="5" fill="#FFFF00" /> <!-- Decorations --> <circle cx="40" cy="120" r="5" fill="#FFE66D" /> <circle cx="60" cy="125" r="4" fill="#A8E6CF" /> <circle cx="90" cy="118" r="5" fill="#FF6B6B" /> <circle cx="120" cy="125" r="4" fill="#DDA0DD" /> <circle cx="140" cy="120" r="5" fill="#FFE66D" />
+       </svg>
+      </div>
+     </div><!-- Birthday Message -->
+     <h1 id="birthday-title" class="font-display text-5xl md:text-7xl mb-4" style="color: #FFE66D; text-shadow: 3px 3px 6px rgba(0,0,0,0.3);">Happy Birthday!</h1>
+     <p id="recipient-text" class="text-3xl md:text-4xl font-bold mb-6" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Dear Friend</p>
+     <div class="rounded-2xl p-6 mb-8 mx-4" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);">
+      <p id="message-text" class="text-xl md:text-2xl font-semibold" style="color: #FFFFFF;">🎉 Wishing you a day filled with love, laughter, and all your favorite things! 🎉</p>
+     </div><!-- Party emoji row -->
+     <div class="flex justify-center gap-4 text-4xl mb-6"><span class="gift-box cursor-pointer inline-block">🎁</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.1s;">🎈</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.2s;">🎂</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.3s;">🥳</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.4s;">🎉</span>
+     </div><!-- Replay button --> <button id="replay-btn" class="px-8 py-3 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all duration-300" style="background: rgba(255,255,255,0.3); color: white; border: 2px solid rgba(255,255,255,0.5);"> 🔄 Celebrate Again! </button>
+    </div>
+   </div><!-- Confetti container -->
+   <div id="confetti-container"></div>
+  </div>
+  <script>
+    const defaultConfig = {
+      recipient_name: "Friend",
+      custom_message: "🎉 Wishing you a day filled with love, laughter, and all your favorite things! 🎉",
+      primary_color: "#667eea",
+      secondary_color: "#FFE66D",
+      text_color: "#FFFFFF",
+      accent_color: "#FF6B6B",
+      surface_color: "#764ba2"
+    };
+    
+    let config = { ...defaultConfig };
+    
+    // Confetti creation
+    function createConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['#FF6B6B', '#FFE66D', '#A8E6CF', '#DDA0DD', '#87CEEB', '#FFA500'];
+      const shapes = ['square', 'circle'];
+      
+      for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)] === 'circle' ? '50%' : '2px';
+          confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          confetti.style.animationDelay = Math.random() * 0.5 + 's';
+          container.appendChild(confetti);
+          
+          // Remove confetti after animation
+          setTimeout(() => confetti.remove(), 5000);
+        }, i * 30);
+      }
+    }
+    
+    // Reveal celebration
+    function revealCelebration() {
+      const surpriseScreen = document.getElementById('surprise-screen');
+      const birthdayScreen = document.getElementById('birthday-screen');
+      
+      surpriseScreen.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      surpriseScreen.style.opacity = '0';
+      surpriseScreen.style.transform = 'scale(0.8)';
+      
+      setTimeout(() => {
+        surpriseScreen.style.display = 'none';
+        birthdayScreen.classList.remove('hidden-content');
+        birthdayScreen.classList.add('show-content');
+        createConfetti();
+      }, 500);
+    }
+    
+    // Reset to surprise screen
+    function resetCelebration() {
+      const surpriseScreen = document.getElementById('surprise-screen');
+      const birthdayScreen = document.getElementById('birthday-screen');
+      const container = document.getElementById('confetti-container');
+      
+      // Clear confetti
+      container.innerHTML = '';
+      
+      // Reset screens
+      birthdayScreen.classList.remove('show-content');
+      birthdayScreen.classList.add('hidden-content');
+      
+      surpriseScreen.style.display = 'flex';
+      surpriseScreen.style.opacity = '0';
+      surpriseScreen.style.transform = 'scale(0.8)';
+      
+      setTimeout(() => {
+        surpriseScreen.style.opacity = '1';
+        surpriseScreen.style.transform = 'scale(1)';
+      }, 50);
+    }
+    
+    // Update UI based on config
+    async function onConfigChange(newConfig) {
+      config = { ...defaultConfig, ...newConfig };
+      
+      const recipientText = document.getElementById('recipient-text');
+      const messageText = document.getElementById('message-text');
+      const birthdayTitle = document.getElementById('birthday-title');
+      
+      // Update text content
+      const name = config.recipient_name || defaultConfig.recipient_name;
+      recipientText.textContent = `Dear ${name}`;
+      messageText.textContent = config.custom_message || defaultConfig.custom_message;
+      
+      // Update colors
+      birthdayTitle.style.color = config.secondary_color || defaultConfig.secondary_color;
+      recipientText.style.color = config.text_color || defaultConfig.text_color;
+      messageText.style.color = config.text_color || defaultConfig.text_color;
+      
+      // Update background gradient
+      const app = document.getElementById('app');
+      app.style.background = `linear-gradient(135deg, ${config.primary_color || defaultConfig.primary_color} 0%, ${config.surface_color || defaultConfig.surface_color} 50%, #f093fb 100%)`;
+    }
+    
+    // Map to capabilities for color editing
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              window.elementSdk.setConfig({ secondary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+    
+    // Map to edit panel values
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["recipient_name", config.recipient_name || defaultConfig.recipient_name],
+        ["custom_message", config.custom_message || defaultConfig.custom_message]
+      ]);
+    }
+    
+    // Event listeners
+    document.getElementById('reveal-btn').addEventListener('click', revealCelebration);
+    document.getElementById('replay-btn').addEventListener('click', resetCelebration);
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c0b0f6864d37974',t:'MTc2ODg3NTI4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
