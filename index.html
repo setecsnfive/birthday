@@ -109,7 +109,7 @@
  </head>
  <body class="h-full font-body">
   <div id="app" class="h-full w-full overflow-auto relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);"><!-- Background Pattern -->
-   <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://scontent-sin6-3.xx.fbcdn.net/v/t39.30808-6/617086051_1558768785330100_2599378329137443559_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFsgYV4N9e4pMSvlPrm8manoPZL5wT0vKKg9kvnBPS8ot9bVySU_avzeM_5_bNRXi-VdWIqrcnkFr3QfMzCOZ1E&_nc_ohc=2QTJM9PPFIEQ7kNvwEYKweC&_nc_oc=AdnQYdYMbIhaCih89-ghj2_caxleU9wt7SelgVZ8EW_ZTCKz74Ah0vTumwd8jklbs5ef31Pbj8pS2B5ESEpwxkil&_nc_zt=23&_nc_ht=scontent-sin6-3.xx&_nc_gid=aSxrc4jMpG2wdJip0gU8kw&oh=00_AfrndWZf2j99OEWmr-1RA6CQ2PL4YvM5V6DYcUMaDyWd7w&oe=6974B95A'); background-size: 200px 200px;"></div><!-- Decorative Background Images -->
+   <div id="background-pattern" class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://scontent-sin6-3.xx.fbcdn.net/v/t39.30808-6/617086051_1558768785330100_2599378329137443559_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFsgYV4N9e4pMSvlPrm8manoPZL5wT0vKKg9kvnBPS8ot9bVySU_avzeM_5_bNRXi-VdWIqrcnkFr3QfMzCOZ1E&_nc_ohc=2QTJM9PPFIEQ7kNvwEYKweC&_nc_oc=AdnQYdYMbIhaCih89-ghj2_caxleU9wt7SelgVZ8EW_ZTCKz74Ah0vTumwd8jklbs5ef31Pbj8pS2B5ESEpwxkil&_nc_zt=23&_nc_ht=scontent-sin6-3.xx&_nc_gid=aSxrc4jMpG2wdJip0gU8kw&oh=00_AfrndWZf2j99OEWmr-1RA6CQ2PL4YvM5V6DYcUMaDyWd7w&oe=6974B95A'); background-size: 200px 200px;"></div><!-- Decorative Background Images -->
    <div id="decorative-images" class="absolute inset-0 pointer-events-none overflow-hidden opacity-30"></div><!-- Surprise Button Screen -->
    <div id="surprise-screen" class="h-full w-full flex flex-col items-center justify-center p-8 relative z-10">
     <div class="text-center">
@@ -328,6 +328,15 @@
     // Generate decorations on load
     generateRandomDecorations();
     
+    // Randomize background pattern rotation
+    function randomizeBackgroundPattern() {
+      const backgroundPattern = document.getElementById('background-pattern');
+      const rotation = Math.random() * 360;
+      backgroundPattern.style.transform = `rotate(${rotation}deg)`;
+    }
+    
+    randomizeBackgroundPattern();
+    
     // Confetti creation
     function createConfetti() {
       const container = document.getElementById('confetti-container');
@@ -484,5 +493,5 @@
       onConfigChange(defaultConfig);
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c0b1bdcc6907974',t:'MTc2ODg3NTc5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c0b1fafb4c0410a',t:'MTc2ODg3NTk1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
