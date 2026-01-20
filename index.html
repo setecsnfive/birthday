@@ -109,8 +109,7 @@
  </head>
  <body class="h-full font-body">
   <div id="app" class="h-full w-full overflow-auto relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);"><!-- Background Pattern -->
-   <div id="background-pattern" class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://scontent-sin6-3.xx.fbcdn.net/v/t39.30808-6/617086051_1558768785330100_2599378329137443559_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFsgYV4N9e4pMSvlPrm8manoPZL5wT0vKKg9kvnBPS8ot9bVySU_avzeM_5_bNRXi-VdWIqrcnkFr3QfMzCOZ1E&_nc_ohc=2QTJM9PPFIEQ7kNvwEYKweC&_nc_oc=AdnQYdYMbIhaCih89-ghj2_caxleU9wt7SelgVZ8EW_ZTCKz74Ah0vTumwd8jklbs5ef31Pbj8pS2B5ESEpwxkil&_nc_zt=23&_nc_ht=scontent-sin6-3.xx&_nc_gid=aSxrc4jMpG2wdJip0gU8kw&oh=00_AfrndWZf2j99OEWmr-1RA6CQ2PL4YvM5V6DYcUMaDyWd7w&oe=6974B95A')"></div><!-- Decorative Background Images -->
-   <div id="decorative-images" class="absolute inset-0 pointer-events-none overflow-hidden opacity-30"></div><!-- Surprise Button Screen -->
+   <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://scontent-sin6-3.xx.fbcdn.net/v/t39.30808-6/617086051_1558768785330100_2599378329137443559_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFsgYV4N9e4pMSvlPrm8manoPZL5wT0vKKg9kvnBPS8ot9bVySU_avzeM_5_bNRXi-VdWIqrcnkFr3QfMzCOZ1E&_nc_ohc=2QTJM9PPFIEQ7kNvwEYKweC&_nc_oc=AdnQYdYMbIhaCih89-ghj2_caxleU9wt7SelgVZ8EW_ZTCKz74Ah0vTumwd8jklbs5ef31Pbj8pS2B5ESEpwxkil&_nc_zt=23&_nc_ht=scontent-sin6-3.xx&_nc_gid=aSxrc4jMpG2wdJip0gU8kw&oh=00_AfrndWZf2j99OEWmr-1RA6CQ2PL4YvM5V6DYcUMaDyWd7w&oe=6974B95A')"></div><!-- Surprise Button Screen -->
    <div id="surprise-screen" class="h-full w-full flex flex-col items-center justify-center p-8 relative z-10">
     <div class="text-center">
      <div class="text-8xl mb-6 animate-bounce">
@@ -163,7 +162,7 @@
      <div class="rounded-2xl p-6 mb-8 mx-4" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);">
       <p id="message-text" class="text-xl md:text-2xl font-semibold" style="color: #FFFFFF;">🎉 Wishing you a day filled with love, laughter, and all your favorite things! 🎉</p>
      </div><!-- Party emoji row -->
-     <div class="flex justify-center gap-4 text-4xl mb-6"><span class="gift-box cursor-pointer inline-block">🎁</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.1s;">��</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.2s;">🎂</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.3s;">🥳</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.4s;">🎉</span>
+     <div class="flex justify-center gap-4 text-4xl mb-6"><span class="gift-box cursor-pointer inline-block">🎁</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.1s;">🎈</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.2s;">🎂</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.3s;">🥳</span> <span class="gift-box cursor-pointer inline-block" style="animation-delay: 0.4s;">🎉</span>
      </div><!-- Replay button --> <button id="replay-btn" class="px-8 py-3 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all duration-300" style="background: rgba(255,255,255,0.3); color: white; border: 2px solid rgba(255,255,255,0.5);"> 🔄 Celebrate Again! </button>
     </div>
    </div><!-- Confetti container -->
@@ -181,161 +180,6 @@
     };
     
     let config = { ...defaultConfig };
-    
-    // Generate random decorative background images
-    function generateRandomDecorations() {
-      const container = document.getElementById('decorative-images');
-      container.innerHTML = '';
-      
-      const decorations = [
-        // Gift Box
-        {
-          svg: `<svg width="120" height="120" viewBox="0 0 120 120">
-            <rect x="25" y="40" width="70" height="60" fill="#FF6B6B" rx="5"/>
-            <rect x="20" y="35" width="80" height="15" fill="#FFE66D" rx="3"/>
-            <rect x="57" y="35" width="6" height="65" fill="#FFE66D"/>
-            <path d="M 60 35 Q 45 20, 30 35" fill="none" stroke="#FFE66D" stroke-width="6"/>
-            <path d="M 60 35 Q 75 20, 90 35" fill="none" stroke="#FFE66D" stroke-width="6"/>
-            <circle cx="30" cy="35" r="8" fill="#FFE66D"/>
-            <circle cx="90" cy="35" r="8" fill="#FFE66D"/>
-          </svg>`,
-          width: 120,
-          height: 120
-        },
-        // Balloon Cluster
-        {
-          svg: `<svg width="140" height="160" viewBox="0 0 140 160">
-            <ellipse cx="40" cy="50" rx="30" ry="40" fill="#A8E6CF" opacity="0.8"/>
-            <line x1="40" y1="88" x2="40" y2="120" stroke="#333" stroke-width="2"/>
-            <ellipse cx="80" cy="40" rx="28" ry="38" fill="#FFE66D" opacity="0.8"/>
-            <line x1="80" y1="76" x2="75" y2="120" stroke="#333" stroke-width="2"/>
-            <ellipse cx="110" cy="55" rx="26" ry="36" fill="#FF6B6B" opacity="0.8"/>
-            <line x1="110" y1="89" x2="100" y2="120" stroke="#333" stroke-width="2"/>
-            <ellipse cx="65" cy="70" rx="24" ry="34" fill="#DDA0DD" opacity="0.8"/>
-            <line x1="65" y1="102" x2="70" y2="120" stroke="#333" stroke-width="2"/>
-            <circle cx="75" cy="125" r="8" fill="#FFE66D"/>
-          </svg>`,
-          width: 140,
-          height: 160
-        },
-        // Party Hat
-        {
-          svg: `<svg width="100" height="120" viewBox="0 0 100 120">
-            <polygon points="50,10 20,100 80,100" fill="#DDA0DD"/>
-            <circle cx="50" cy="10" r="12" fill="#FFE66D"/>
-            <line x1="30" y1="60" x2="70" y2="60" stroke="#FFE66D" stroke-width="3"/>
-            <line x1="35" y1="75" x2="65" y2="75" stroke="#A8E6CF" stroke-width="3"/>
-            <ellipse cx="50" cy="100" rx="35" ry="8" fill="#BA55D3"/>
-          </svg>`,
-          width: 100,
-          height: 120
-        },
-        // Star Cluster
-        {
-          svg: `<svg width="130" height="130" viewBox="0 0 130 130">
-            <path d="M 40 45 L 45 60 L 60 65 L 45 70 L 40 85 L 35 70 L 20 65 L 35 60 Z" fill="#FFE66D" opacity="0.9"/>
-            <path d="M 90 30 L 93 40 L 103 43 L 93 46 L 90 56 L 87 46 L 77 43 L 87 40 Z" fill="#A8E6CF" opacity="0.9"/>
-            <path d="M 75 80 L 80 95 L 95 100 L 80 105 L 75 120 L 70 105 L 55 100 L 70 95 Z" fill="#FF6B6B" opacity="0.9"/>
-            <circle cx="45" cy="25" r="4" fill="#FFFFFF"/>
-            <circle cx="105" cy="75" r="5" fill="#FFFFFF"/>
-            <circle cx="30" cy="100" r="3" fill="#FFFFFF"/>
-          </svg>`,
-          width: 130,
-          height: 130
-        },
-        // Confetti Burst
-        {
-          svg: `<svg width="160" height="100" viewBox="0 0 160 100">
-            <rect x="20" y="30" width="8" height="15" fill="#FF6B6B" transform="rotate(20 24 37)" opacity="0.8"/>
-            <rect x="50" y="20" width="8" height="15" fill="#FFE66D" transform="rotate(-30 54 27)" opacity="0.8"/>
-            <rect x="80" y="15" width="8" height="15" fill="#A8E6CF" transform="rotate(45 84 22)" opacity="0.8"/>
-            <rect x="110" y="25" width="8" height="15" fill="#DDA0DD" transform="rotate(-15 114 32)" opacity="0.8"/>
-            <rect x="140" y="35" width="8" height="15" fill="#87CEEB" transform="rotate(60 144 42)" opacity="0.8"/>
-            <circle cx="35" cy="50" r="5" fill="#FFE66D" opacity="0.8"/>
-            <circle cx="70" cy="45" r="6" fill="#FF6B6B" opacity="0.8"/>
-            <circle cx="95" cy="55" r="5" fill="#A8E6CF" opacity="0.8"/>
-            <circle cx="125" cy="50" r="6" fill="#DDA0DD" opacity="0.8"/>
-          </svg>`,
-          width: 160,
-          height: 100
-        },
-        // Streamers Left
-        {
-          svg: `<svg width="80" height="200" viewBox="0 0 80 200">
-            <path d="M 10 20 Q 30 60, 20 100 Q 10 140, 30 180" fill="none" stroke="#FF6B6B" stroke-width="8" opacity="0.7"/>
-            <path d="M 40 30 Q 60 70, 50 110 Q 40 150, 60 190" fill="none" stroke="#FFE66D" stroke-width="8" opacity="0.7"/>
-          </svg>`,
-          width: 80,
-          height: 200
-        },
-        // Streamers Right
-        {
-          svg: `<svg width="80" height="200" viewBox="0 0 80 200">
-            <path d="M 70 20 Q 50 60, 60 100 Q 70 140, 50 180" fill="none" stroke="#A8E6CF" stroke-width="8" opacity="0.7"/>
-            <path d="M 40 30 Q 20 70, 30 110 Q 40 150, 20 190" fill="none" stroke="#DDA0DD" stroke-width="8" opacity="0.7"/>
-          </svg>`,
-          width: 80,
-          height: 200
-        }
-      ];
-      
-      // Generate 8-12 random decorations
-      const numDecorations = Math.floor(Math.random() * 5) + 8;
-      
-      for (let i = 0; i < numDecorations; i++) {
-        const decoration = decorations[Math.floor(Math.random() * decorations.length)];
-        const div = document.createElement('div');
-        div.className = 'absolute';
-        
-        // Random position (avoiding center area)
-        const side = Math.floor(Math.random() * 4); // 0: top, 1: right, 2: bottom, 3: left
-        let top, left, right, bottom;
-        
-        switch(side) {
-          case 0: // top
-            top = Math.random() * 20 + '%';
-            left = Math.random() * 80 + 10 + '%';
-            break;
-          case 1: // right
-            top = Math.random() * 80 + 10 + '%';
-            right = Math.random() * 15 + '%';
-            break;
-          case 2: // bottom
-            bottom = Math.random() * 20 + '%';
-            left = Math.random() * 80 + 10 + '%';
-            break;
-          case 3: // left
-            top = Math.random() * 80 + 10 + '%';
-            left = Math.random() * 15 + '%';
-            break;
-        }
-        
-        if (top) div.style.top = top;
-        if (left) div.style.left = left;
-        if (right) div.style.right = right;
-        if (bottom) div.style.bottom = bottom;
-        
-        // Random rotation and scale for more natural look
-        const rotation = Math.random() * 360;
-        const scale = Math.random() * 0.4 + 0.8; // Scale between 0.8 and 1.2
-        div.style.transform = `rotate(${rotation}deg) scale(${scale})`;
-        
-        div.innerHTML = decoration.svg;
-        container.appendChild(div);
-      }
-    }
-    
-    // Generate decorations on load
-    generateRandomDecorations();
-    
-    // Randomize background pattern rotation
-    function randomizeBackgroundPattern() {
-      const backgroundPattern = document.getElementById('background-pattern');
-      const rotation = Math.random() * 360;
-      backgroundPattern.style.transform = `rotate(${rotation}deg)`;
-    }
-    
-    randomizeBackgroundPattern();
     
     // Confetti creation
     function createConfetti() {
@@ -493,5 +337,5 @@
       onConfigChange(defaultConfig);
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c0b1fafb4c0410a',t:'MTc2ODg3NTk1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c0b098e43177974',t:'MTc2ODg3NTA0Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
